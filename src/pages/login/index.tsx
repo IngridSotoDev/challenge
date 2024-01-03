@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import { Input } from '@/components/input'
 import styles from './styles.scss'
 
 function LoginPage() {
+  const navigate = useNavigate()
   function onSubmit() {
-    console.log('login')
+    navigate('/suppliers')
   }
 
   return (
