@@ -1,0 +1,37 @@
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --purple-100:#F0EDFF;
+  --purple-300:#9181F4;
+  --purple-500:#5038ED;
+
+  --gray-100:#F0EDFF;
+  --gray-500: #525252;
+  --gray-900:#1C1C1C;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+:focus {
+  outline: 0;
+  box-shadow: 0 0 0 1px var(--purple-500);
+}
+
+body, input, textarea, button {
+  font-weight: 400;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}

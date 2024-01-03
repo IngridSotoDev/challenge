@@ -1,0 +1,22 @@
+.c-input__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+
+  &__label {
+    color: var(--purple-500);
+  }
+}
+
+.c-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  color: var(--gray-500);
+  padding: 1.2rem 1.6rem;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+
+  border: 1px solid  var(--purple-300);
+}
