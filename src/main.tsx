@@ -1,11 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginPage from './pages/login';
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello, React with Webpack!</h1>
-    </div>
+    <LoginPage />
   )
 }
 

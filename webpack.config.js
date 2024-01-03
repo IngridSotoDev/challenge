@@ -5,7 +5,14 @@ module.exports = {
   entry: './src/main.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', 'scss'],
+    alias: {
+      '@': path.join(__dirname, 'src')
+    },
   },
   module: {
     rules: [
@@ -17,23 +24,35 @@ module.exports = {
         }
       },
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',
         }
       },
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader',
+          options: {
+            modules: true
+          }
+        }, {
+          loader: 'sass-loader'
+        }]
+      }]
   },
   devServer: {
     open: true,
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    liveReload: true,
+    historyApiFallback: true,
     compress: true,
     port: 8080
-  }
+  },
+
 };
