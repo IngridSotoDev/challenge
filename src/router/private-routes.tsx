@@ -1,10 +1,9 @@
-import { lazy } from 'react'
 import { Navigate } from 'react-router-dom'
 
 import PrivateRoutesLayout from '@/layout/private-routes-layout'
 
-const SuppliersPage = lazy(() => import('@/pages/suppliers'))
-const SuppliersDetails = lazy(() => import('@/pages/supplier-details'))
+import SuppliersPage from '@/pages/suppliers'
+import SuppliersDetails from '@/pages/supplier-details'
 
 function PrivateRoutes() {
   return {

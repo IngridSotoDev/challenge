@@ -1,7 +1,5 @@
 .p-supplier-details {
-  margin: 5rem;
-
-  header {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,7 +13,7 @@
     column-gap: 1.6rem;
   }
 
-  form {
+  &__form {
     fieldset {
       border: none;
       margin-bottom: 2.4rem;

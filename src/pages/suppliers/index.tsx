@@ -6,12 +6,12 @@ function SupplierPage() {
   const navigate = useNavigate()
 
   return (
-    <main className={styles['p-suppliers']}>
-      <header>
+    <>
+      <header className={styles['p-suppliers__header']}>
         <h1>Suppliers</h1>
       </header>
 
-      <table>
+      <table className={styles['p-suppliers__table']}>
         <thead>
           <tr>
             <th>Name</th>
@@ -46,7 +46,7 @@ function SupplierPage() {
           </tr>
         </tbody>
       </table>
-    </main>
+    </>
   )
 }
 

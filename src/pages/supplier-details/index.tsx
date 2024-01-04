@@ -13,8 +13,8 @@ function SupplierDetailsPage() {
   const goBackNavigation = () => navigate(-1)
 
   return (
-    <main className={styles['p-supplier-details']}>
-      <header>
+    <>
+      <header className={styles['p-supplier-details__header']}>
         <h1>Supplier Details</h1>
 
         <div className={styles['p-supplier-details__actions']}>
@@ -25,14 +25,14 @@ function SupplierDetailsPage() {
         </div>
       </header>
 
-      <form>
+      <form className={styles['p-supplier-details__form']}>
         <SupplierInformation />
         <Separator />
         <OwnerInformation />
         <Separator />
         <AddressInformation />
       </form>
-    </main>
+    </>
   )
 }
 
