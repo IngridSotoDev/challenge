@@ -1,4 +1,4 @@
-import { Input } from '@/components/input'
+import Input  from '@/components/input'
 import styles from './styles.scss'
 
 function SupplierInformation() {

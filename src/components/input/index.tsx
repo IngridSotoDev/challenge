@@ -30,4 +30,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function InputComponent(
 })
 
 Input.displayName = 'Input'
-export { Input }
+export default Input
