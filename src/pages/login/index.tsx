@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { Input } from '@/components/input'
+import Input from '@/components/input'
+import Button from '@/components/button'
 import styles from './styles.scss'
 
 function LoginPage() {
@@ -15,7 +16,9 @@ function LoginPage() {
         <form className={styles['p-login__form']} onSubmit={onSubmit}>
           <Input placeholder="Username" type="text" />
           <Input placeholder="Password" type="password" />
-          <button type="submit">Sign In</button>
+          <Button type="submit" className={styles['p-login__form--button']}>
+            Sign In
+          </Button>
         </form>
       </div>
     </div>

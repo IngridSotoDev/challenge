@@ -1,7 +1,10 @@
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Button from '@/components/button'
 import styles from './styles.scss'
 
 function SupplierPage() {
+  const navigate = useNavigate()
+
   return (
     <main className={styles['p-suppliers']}>
       <header>
@@ -25,12 +28,9 @@ function SupplierPage() {
             <td>(99) 99999-9999</td>
             <td>Elias</td>
             <td>
-              <NavLink
-                className={styles['p-suppliers__navlink']}
-                to={'/suppliers/asdasdasdasd'}
-              >
+              <Button onClick={() => navigate('/suppliers/asdasdasdasd')}>
                 Edit
-              </NavLink>
+              </Button>
             </td>
           </tr>
           <tr>
@@ -39,12 +39,9 @@ function SupplierPage() {
             <td>(99) 99999-9999</td>
             <td>Elias</td>
             <td>
-              <NavLink
-                className={styles['p-suppliers__navlink']}
-                to={'/suppliers/asdasdasdasd'}
-              >
+              <Button onClick={() => navigate('/suppliers/asdasdasdasd')}>
                 Edit
-              </NavLink>
+              </Button>
             </td>
           </tr>
         </tbody>
