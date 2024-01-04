@@ -1,4 +1,4 @@
-export type SupplierModel = {
+export type ISupplierModel = {
   publicId: string
   name: string
   cnpj: string

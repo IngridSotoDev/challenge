@@ -1,7 +1,9 @@
 import { UseQueryOptions, UseMutationOptions } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
 
-export type IMessageErrorResponse = AxiosError
+export type IMessageResponse = { message: string }
+
+export type IMessageErrorResponse = AxiosError<IMessageResponse>
 
 export type CustomQueryOptions<T> = Omit<
   UseQueryOptions<T, IMessageErrorResponse>,

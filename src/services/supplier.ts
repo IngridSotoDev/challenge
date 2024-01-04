@@ -1,16 +1,16 @@
 import { api } from '@/http/api'
-import { SupplierModel } from '@/types/supplier'
+import { ISupplierModel } from '@/types/supplier'
 
 const URL = '/suppliers'
 
 export const index = () => {
-  return api.get<SupplierModel[]>(`${URL}`)
+  return api.get<ISupplierModel[]>(`${URL}`)
 }
 
-export const show = (id: SupplierModel['publicId']) => {
-  return api.get<SupplierModel>(`${URL}/${id}`)
+export const show = (id: ISupplierModel['publicId']) => {
+  return api.get<ISupplierModel>(`${URL}/${id}`)
 }
 
-export const update = (params: SupplierModel) => {
-  return api.put<SupplierModel>(`${URL}`, params)
+export const update = (params: ISupplierModel) => {
+  return api.put<ISupplierModel>(`${URL}`, params)
 }
