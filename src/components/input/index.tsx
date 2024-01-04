@@ -1,22 +1,30 @@
 import { InputHTMLAttributes, ReactNode, forwardRef } from 'react'
+import classNames from 'classnames'
 import styles from './styles.scss'
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: ReactNode
+  wrapperClassName?: string
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function InputComponent(
-  { label, ...rest },
+  { label, wrapperClassName, className, ...rest },
   ref,
 ) {
+  const wrapperClasses = classNames(
+    styles['c-input__wrapper'],
+    wrapperClassName,
+  )
+  const inputClasses = classNames(styles['c-input'], className)
+
   return (
-    <div className={styles['c-input__wrapper']}>
-      {!!label && (
-        <label className={styles['c-input__wrapper__label']} htmlFor={rest.id}>
+    <div className={wrapperClasses}>
+      {label ? (
+        <label className={styles['c-input__wrapper--label']} htmlFor={rest.id}>
           {label}
         </label>
-      )}
-      <input ref={ref} {...rest} className={styles['c-input']} />
+      ) : null}
+      <input ref={ref} {...rest} className={inputClasses} />
     </div>
   )
 })

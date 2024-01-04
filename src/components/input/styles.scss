@@ -3,7 +3,8 @@
   flex-direction: column;
   row-gap: 0.5rem;
 
-  &__label {
+  &--label {
+    font-size: 1.4rem;
     color: var(--purple-500);
   }
 }
@@ -12,11 +13,12 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  font-size: 1.4rem;
 
   color: var(--gray-500);
-  padding: 1.2rem 1.6rem;
+  padding: 1rem 1.4rem;
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 
-  border: 1px solid  var(--purple-300);
+  border: 1px solid var(--purple-300);
 }
