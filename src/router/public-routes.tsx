@@ -7,11 +7,11 @@ function PublicRoutes(): RouteObject[] {
   return [
     { path: '/', element: <LoginPage /> },
     {
-      path: 'suppliers',
+      path: '/suppliers',
       element: <SupplierPage />,
     },
     {
-      path: 'suppliers/:id',
+      path: '/suppliers/:id',
       element: <SupplierDetailsPage />,
     },
     { path: '*', element: <Navigate to="/" replace /> },

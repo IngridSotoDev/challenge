@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   mode: 'development',
@@ -6,12 +6,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'scss'],
     alias: {
-      '@': path.join(__dirname, 'src')
+      '@': path.join(__dirname, 'src'),
     },
   },
   module: {
@@ -20,39 +20,41 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',
-        }
+        },
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader',
-          options: {
-            modules: true
-          }
-        }, {
-          loader: 'sass-loader'
-        }]
-      }]
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+    ],
   },
   devServer: {
     open: true,
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'public'),
     },
     liveReload: true,
     historyApiFallback: true,
     compress: true,
-    port: 8080
+    port: 8080,
   },
-
-};
+}

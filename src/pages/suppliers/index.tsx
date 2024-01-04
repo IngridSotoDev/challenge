@@ -3,7 +3,7 @@ import styles from './styles.scss'
 
 function SupplierPage() {
   return (
-    <div className={styles['p-suppliers']}>
+    <main className={styles['p-suppliers']}>
       <header>
         <h1>Suppliers</h1>
       </header>
@@ -49,7 +49,7 @@ function SupplierPage() {
           </tr>
         </tbody>
       </table>
-    </div>
+    </main>
   )
 }
 
