@@ -18,6 +18,7 @@ import {
 } from './components'
 
 import styles from './styles.scss'
+import Header from '@/components/header'
 
 function SupplierDetailsPage() {
   const { supplierId } = useParams()
@@ -60,16 +61,17 @@ function SupplierDetailsPage() {
       onSubmit={handleSubmit(handleSupplierSubmit)}
       className={styles['p-supplier-details__form']}
     >
-      <header className={styles['p-supplier-details__form--header']}>
-        <h1>Supplier Details</h1>
-
-        <div className={styles['p-supplier-details__form--actions']}>
-          <Button variant="secondary" onClick={goBackNavigation}>
-            Cancel
-          </Button>
-          <Button onClick={goBackNavigation}>Submit</Button>
-        </div>
-      </header>
+      <Header
+        title="Supplier Details"
+        actions={
+          <>
+            <Button variant="secondary" onClick={goBackNavigation}>
+              Cancel
+            </Button>
+            <Button onClick={goBackNavigation}>Submit</Button>
+          </>
+        }
+      />
 
       <FormProvider {...supplierForm}>
         <SupplierInformation />

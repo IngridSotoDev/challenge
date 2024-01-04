@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
 import Button from '@/components/button'
 import styles from './styles.scss'
+import Header from '@/components/header'
 
 function SupplierPage() {
   const navigate = useNavigate()
@@ -14,9 +15,7 @@ function SupplierPage() {
 
   return (
     <>
-      <header className={styles['p-suppliers__header']}>
-        <h1>Suppliers</h1>
-      </header>
+      <Header title="Suppliers" />
 
       <table className={styles['p-suppliers__table']}>
         <thead>
