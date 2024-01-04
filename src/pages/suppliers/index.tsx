@@ -1,12 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
-import Button from '@/components/button'
-import styles from './styles.scss'
 import Header from '@/components/header'
+import styles from './styles.scss'
 
 function SupplierPage() {
-  const navigate = useNavigate()
-
   const { data, isLoading } = useQuerySupplier.useGetSuppliers()
 
   if (isLoading) {
@@ -35,11 +32,12 @@ function SupplierPage() {
               <td>{supplier.phoneNumber}</td>
               <td>{supplier.ownerName}</td>
               <td>
-                <Button
-                  onClick={() => navigate(`/suppliers/${supplier.publicId}`)}
+                <NavLink
+                  className={styles['p-suppliers__table--button-edit']}
+                  to={`/suppliers/${supplier.publicId}`}
                 >
                   Edit
-                </Button>
+                </NavLink>
               </td>
             </tr>
           ))}
