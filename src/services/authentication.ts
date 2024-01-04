@@ -6,7 +6,7 @@ import {
 
 const URL = '/oauth/token'
 
-export const login = (params: IAuthenticationParams) => {
+export const signIn = (params: IAuthenticationParams) => {
   return apiToken.post<IAuthenticationModel>(`${URL}`, params, {
     headers: {
       'Content-Type': 'multipart/form-data',
