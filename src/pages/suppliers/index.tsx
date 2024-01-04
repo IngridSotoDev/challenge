@@ -1,9 +1,16 @@
 import { useNavigate } from 'react-router-dom'
+import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
 import Button from '@/components/button'
 import styles from './styles.scss'
 
 function SupplierPage() {
   const navigate = useNavigate()
+
+  const { data, isLoading } = useQuerySupplier.useGetSuppliers()
+
+  if (isLoading) {
+    return <>carregando...</>
+  }
 
   return (
     <>
@@ -22,28 +29,21 @@ function SupplierPage() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Distribuidora A</td>
-            <td>99.999.999/9999-99</td>
-            <td>(99) 99999-9999</td>
-            <td>Elias</td>
-            <td>
-              <Button onClick={() => navigate('/suppliers/asdasdasdasd')}>
-                Edit
-              </Button>
-            </td>
-          </tr>
-          <tr>
-            <td>Distribuidora A</td>
-            <td>99.999.999/9999-99</td>
-            <td>(99) 99999-9999</td>
-            <td>Elias</td>
-            <td>
-              <Button onClick={() => navigate('/suppliers/asdasdasdasd')}>
-                Edit
-              </Button>
-            </td>
-          </tr>
+          {data.map((supplier) => (
+            <tr key={`supplier-${supplier.publicId}`}>
+              <td>{supplier.name}</td>
+              <td>{supplier.cnpj}</td>
+              <td>{supplier.phoneNumber}</td>
+              <td>{supplier.ownerName}</td>
+              <td>
+                <Button
+                  onClick={() => navigate(`/suppliers/${supplier.publicId}`)}
+                >
+                  Edit
+                </Button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>
