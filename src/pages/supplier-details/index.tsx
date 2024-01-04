@@ -1,10 +1,11 @@
 import { Input } from '@/components/input'
 import styles from './styles.scss'
 import { NavLink } from 'react-router-dom'
+import Separator from '@/components/separator'
 
 function SupplierDetailsPage() {
   return (
-    <div className={styles['p-supplier-details']}>
+    <main className={styles['p-supplier-details']}>
       <header>
         <h1>Supplier Details</h1>
 
@@ -15,29 +16,82 @@ function SupplierDetailsPage() {
       </header>
 
       <form>
-        <Input label="Name" />
-        <Input label="CNPJ" />
-        <Input label="Phone Number" />
-
-        <fieldset>
-          <legend>Owner</legend>
-          <Input label="Name" />
-          <Input label="Email" />
-          <Input label="Phone Number" />
+        <fieldset className={styles['c-input-container']}>
+          <div className={styles['c-input-container__row']}>
+            <Input
+              label="Name"
+              wrapperClassName={styles['c-input-container__col-7']}
+            />
+            <Input
+              label="CNPJ"
+              wrapperClassName={styles['c-input-container__col-5']}
+            />
+            <Input
+              label="Phone Number"
+              wrapperClassName={styles['c-input-container__col-3']}
+            />
+          </div>
         </fieldset>
 
-        <fieldset>
+        <Separator />
+
+        <fieldset className={styles['c-input-container']}>
+          <legend>Owner</legend>
+
+          <div className={styles['c-input-container__row']}>
+            <Input
+              label="Name"
+              wrapperClassName={styles['c-input-container__col-7']}
+            />
+            <Input
+              label="Email"
+              wrapperClassName={styles['c-input-container__col-5']}
+            />
+            <Input
+              label="Phone Number"
+              wrapperClassName={styles['c-input-container__col-3']}
+            />
+          </div>
+        </fieldset>
+
+        <Separator />
+
+        <fieldset className={styles['c-input-container']}>
           <legend>Address</legend>
-          <Input label="Address" />
-          <Input label="Number" />
-          <Input label="Complement" />
-          <Input label="Neighborhood" />
-          <Input label="City" />
-          <Input label="State" />
-          <Input label="Zip Code" />
+
+          <div className={styles['c-input-container__row']}>
+            <Input
+              label="Address"
+              wrapperClassName={styles['c-input-container__col-7']}
+            />
+            <Input
+              label="Number"
+              wrapperClassName={styles['c-input-container__col-2']}
+            />
+            <Input
+              label="Complement"
+              wrapperClassName={styles['c-input-container__col-3']}
+            />
+            <Input
+              label="Neighborhood"
+              wrapperClassName={styles['c-input-container__col-3']}
+            />
+            <Input
+              label="City"
+              wrapperClassName={styles['c-input-container__col-4']}
+            />
+            <Input
+              label="State"
+              wrapperClassName={styles['c-input-container__col-2']}
+            />
+            <Input
+              label="Zip Code"
+              wrapperClassName={styles['c-input-container__col-3']}
+            />
+          </div>
         </fieldset>
       </form>
-    </div>
+    </main>
   )
 }
 
