@@ -1,0 +1,32 @@
+.c-input-container {
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2.4rem;
+  }
+
+  &__col-7 {
+    width: 100%;
+    grid-column: span 7;
+  }
+
+  &__col-5 {
+    width: 100%;
+    grid-column: span 5;
+  }
+
+  &__col-4 {
+    width: 100%;
+    grid-column: span 4;
+  }
+
+  &__col-3 {
+    width: 100%;
+    grid-column: span 3;
+  }
+
+  &__col-2 {
+    width: 100%;
+    grid-column: span 2;
+  }
+}
