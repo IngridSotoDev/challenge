@@ -5,6 +5,7 @@ import {
   IMessageErrorResponse,
 } from '@/types/custom-queries'
 import { ISupplierModel } from '@/types/supplier'
+
 import { index, show } from '@/services/supplier'
 
 const queryKeys = {
@@ -13,10 +14,8 @@ const queryKeys = {
   useGetSupplierById: (key: QueryKey) => [...queryKeys.all, ...key] as const,
 } as const
 
-export const useGetSuppliers = (
-  options?: CustomQueryOptions<ISupplierModel[]>,
-) => {
-  return useQuery<ISupplierModel[], IMessageErrorResponse>(
+const useGetSuppliers = (options?: CustomQueryOptions<ISupplierModel[]>) =>
+  useQuery<ISupplierModel[], IMessageErrorResponse>(
     queryKeys.useGetSuppliers(),
     () => index().then(({ data }) => data),
     {
@@ -24,21 +23,20 @@ export const useGetSuppliers = (
       ...options,
     },
   )
-}
 
-export const useGetSupplierById = (
+const useGetSupplierById = (
   id: ISupplierModel['publicId'],
   options?: CustomQueryOptions<ISupplierModel>,
-) => {
-  return useQuery<ISupplierModel, IMessageErrorResponse>(
+) =>
+  useQuery<ISupplierModel, IMessageErrorResponse>(
     queryKeys.useGetSupplierById([id]),
     () => show(id).then(({ data }) => data),
     {
+      refetchOnWindowFocus: false,
       networkMode: 'always',
       ...options,
     },
   )
-}
 
 export const useQuerySupplier = {
   queryKeys,

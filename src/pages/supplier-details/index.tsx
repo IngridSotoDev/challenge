@@ -1,10 +1,13 @@
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
-
-import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { ISupplierModel } from '@/types/supplier'
+
+import { update } from '@/services/supplier'
+
+import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
 
 import Button from '@/components/button'
 import Separator from '@/components/separator'
@@ -19,6 +22,7 @@ import styles from './styles.scss'
 function SupplierDetailsPage() {
   const { supplierId } = useParams()
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const { data: supplier, isLoading } =
     useQuerySupplier.useGetSupplierById(supplierId)
@@ -29,8 +33,20 @@ function SupplierDetailsPage() {
 
   const goBackNavigation = () => navigate(-1)
 
+  const { mutate } = useMutation(update)
+
   function handleSupplierSubmit(data: ISupplierModel) {
-    console.log(data)
+    mutate(data, {
+      onSuccess() {
+        queryClient.invalidateQueries([
+          useQuerySupplier.queryKeys.useGetSuppliers,
+        ])
+        goBackNavigation()
+      },
+      onError(error) {
+        console.log(error)
+      },
+    })
   }
 
   useEffect(() => reset({ ...supplier }), [supplier, reset])

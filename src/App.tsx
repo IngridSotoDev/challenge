@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { CookiesProvider } from 'react-cookie'
 import Router from './router'
 import '@/styles/global.scss'
@@ -11,6 +12,7 @@ function App() {
       <CookiesProvider>
         <Router />
       </CookiesProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }
