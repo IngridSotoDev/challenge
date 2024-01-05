@@ -14,13 +14,13 @@ function LoginPage() {
   const navigate = useNavigate()
   const { setToken } = useAuth()
 
-  function onSubmit(event: FormEvent) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const formData = new FormData()
+    formData.append('username', event.target[0].value)
+    formData.append('password', event.target[1].value)
     formData.append('grant_type', 'password')
-    formData.append('username', 'admin@cayena.com')
-    formData.append('password', '123456')
     formData.append('scope', 'web')
 
     signIn(formData)
@@ -43,8 +43,8 @@ function LoginPage() {
       <div className={styles['p-login__form-wrapper']}>
         <h1 className={styles['p-login__form-title']}>Login</h1>
         <form className={styles['p-login__form']} onSubmit={onSubmit}>
-          <Input placeholder="Username" type="text" />
-          <Input placeholder="Password" type="password" />
+          <Input placeholder="Username" type="text" name="username" />
+          <Input placeholder="Password" type="password" name="password" />
           <Button type="submit" className={styles['p-login__form--button']}>
             Sign In
           </Button>
