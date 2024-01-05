@@ -5,12 +5,13 @@
   transition: filter 0.2ms;
 
   &.primary {
-    background-color: var(--purple-500);
+    background-color: var(--accent-color);
     color: var(--white);
   }
 
   &.secondary {
-    background-color: var(--purple-100);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
   }
 
   &:hover {

@@ -1,14 +1,26 @@
 :root {
-  --white: #FFFFFF;
+  --white: #ffffff;
   --black: #000000;
-
-  --purple-100:#F0EDFF;
-  --purple-300:#9181F4;
-  --purple-500:#5038ED;
-
-  --gray-100:#F0EDFF;
+  --purple-100: #f0edff;
+  --purple-300: #9181f4;
+  --purple-500: #5038ed;
+  --gray-100: #f0edff;
   --gray-500: #525252;
-  --gray-900:#1C1C1C;
+  --gray-900: #1c1c1c;
+
+  --background: var(--white);
+  --text-color: var(--black);
+  --primary-color: var(--purple-500);
+  --secondary-color: var(--gray-100);
+  --accent-color: var(--purple-300);
+}
+
+.theme-dark {
+  --background: var(--gray-900);
+  --text-color: var(--white);
+  --primary-color: var(--purple-300);
+  --secondary-color: var(--gray-500);
+  --accent-color: var(--purple-500);
 }
 
 * {
@@ -23,13 +35,17 @@ html {
 
 :focus {
   outline: 0;
-  box-shadow: 0 0 0 1px var(--purple-500);
+  box-shadow: 0 0 0 1px var(--primary-color);
 }
 
-body, input, textarea, button {
+body,
+input,
+textarea,
+button {
+  background-color: var(--background);
   font-weight: 400;
   font-size: 1.6rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 button {
