@@ -1,11 +1,15 @@
 import { render, waitFor } from '@testing-library/react'
-import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
-import SupplierPage from '.'
 import { UseQueryResult } from '@tanstack/react-query'
+import { faker } from '@faker-js/faker'
+
+import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
+
 import { ISupplierModel } from '@/types/supplier'
 import { IMessageErrorResponse } from '@/types/custom-queries'
-import { faker } from '@faker-js/faker'
+
 import { Providers } from '@/tests/utils/wrapper'
+
+import SupplierPage from '.'
 
 describe('SupplierPage Component', () => {
   it('renders loading state', () => {
