@@ -1,14 +1,15 @@
 import { Outlet } from 'react-router-dom'
 import { useTheme } from '@/context/ThemeContext'
+import Switch from '@/components/switch'
 
 import styles from './styles.scss'
 
 export default function PrivateRoutesLayout() {
-  const { toggleTheme } = useTheme()
+  const { isDarkMode, toggleTheme } = useTheme()
 
   return (
     <main className={styles['c-main']}>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <Switch onChange={toggleTheme} checked={isDarkMode} />
       <Outlet />
     </main>
   )

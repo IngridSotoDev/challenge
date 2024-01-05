@@ -39,10 +39,14 @@ html {
 }
 
 body,
+input {
+  background: var(--background);
+}
+
+body,
 input,
 textarea,
 button {
-  background-color: var(--background);
   font-weight: 400;
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
