@@ -25,7 +25,7 @@ describe('SupplierPage Component', () => {
     const { getByText } = render(<SupplierPage />)
 
     expect(useGetSuppliers).toHaveBeenCalledTimes(1)
-    expect(getByText('carregando...')).toBeInTheDocument()
+    expect(getByText('loading...')).toBeInTheDocument()
   })
 
   it('renders supplier table', async () => {

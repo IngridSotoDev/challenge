@@ -32,7 +32,7 @@ describe('SupplierDetailsPage Component', () => {
       wrapper: Providers({ path: '/suppliers/123' }),
     })
 
-    expect(getByText('carregando...')).toBeInTheDocument()
+    expect(getByText('loading...')).toBeInTheDocument()
   })
 
   it('submits the form and updates data', async () => {
