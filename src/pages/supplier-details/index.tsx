@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { AxiosError } from 'axios'
+import { FormProvider, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { ISupplierModel } from '@/types/supplier'
 
@@ -9,6 +11,7 @@ import { update } from '@/services/supplier'
 
 import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
 
+import Header from '@/components/header'
 import Button from '@/components/button'
 import Separator from '@/components/separator'
 import {
@@ -18,7 +21,6 @@ import {
 } from './components'
 
 import styles from './styles.scss'
-import Header from '@/components/header'
 
 function SupplierDetailsPage() {
   const { supplierId } = useParams()
@@ -39,13 +41,14 @@ function SupplierDetailsPage() {
   function handleSupplierSubmit(data: ISupplierModel) {
     mutate(data, {
       onSuccess() {
+        toast.success('Updated successfully!')
         queryClient.invalidateQueries([
           useQuerySupplier.queryKeys.useGetSuppliers,
         ])
         goBackNavigation()
       },
-      onError(error) {
-        console.log(error)
+      onError(error: AxiosError) {
+        toast.error(error.message)
       },
     })
   }
@@ -53,7 +56,7 @@ function SupplierDetailsPage() {
   useEffect(() => reset({ ...supplier }), [supplier, reset])
 
   if (isLoading) {
-    return <>carregando...</>
+    return <>loading...</>
   }
 
   return (

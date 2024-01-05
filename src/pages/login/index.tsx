@@ -1,5 +1,7 @@
 import { FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AxiosError } from 'axios'
+import { toast } from 'react-toastify'
 
 import useAuth from '@/hooks/useAuth'
 
@@ -35,7 +37,7 @@ function LoginPage() {
         })
         navigate('/suppliers')
       })
-      .catch((error) => console.log(error))
+      .catch((error: AxiosError) => toast.error(error.message))
   }
 
   return (

@@ -1,13 +1,21 @@
+import { useEffect } from 'react'
+import { toast } from 'react-toastify'
 import { NavLink } from 'react-router-dom'
 import { useQuerySupplier } from '@/hooks/queries/useQuerySupplier'
 import Header from '@/components/header'
 import styles from './styles.scss'
 
 function SupplierPage() {
-  const { data, isLoading } = useQuerySupplier.useGetSuppliers()
+  const { data, isLoading, isError, error } = useQuerySupplier.useGetSuppliers()
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(error.message)
+    }
+  }, [error, isError])
 
   if (isLoading) {
-    return <>carregando...</>
+    return <>loading...</>
   }
 
   return (
