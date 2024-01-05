@@ -28,6 +28,8 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
+      const cookies = new Cookies()
+      cookies.remove('auth_token')
       window.location.href = '/'
     }
 
