@@ -1,0 +1,54 @@
+.c-switch-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  column-gap: 8px;
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  &__text {
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+}
+
+.c-switch {
+  visibility: hidden;
+
+  &[type="checkbox"]:checked + .c-slider {
+    background-color: var(--primary-color);
+  }
+
+  &[type="checkbox"]:checked + .c-slider:before {
+    transform: translateX(26px);
+  }
+}
+
+.c-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+}
